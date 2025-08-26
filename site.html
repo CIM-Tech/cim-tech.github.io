@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIMTech.ai - High Performance Processors for AI, Everywhere</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: #64748b;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #475569;
+            margin-bottom: 4rem;
+            max-width: 800px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            width: 100%;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #1e293b;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 8rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: #475569;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: #f8fafc;
+        }
+
+        .problem-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .problem-text {
+            font-size: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .problem-stats {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Solution Section */
+        .solution-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 4rem 0;
+        }
+
+        .traditional, .cimtech-solution {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .traditional {
+            background: #fef2f2;
+            border-radius: 12px;
+        }
+
+        .cimtech-solution {
+            background: #f0f9ff;
+            border-radius: 12px;
+        }
+
+        .solution-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .solution-metric {
+            text-align: center;
+        }
+
+        .solution-metric-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #0f172a;
+        }
+
+        .solution-metric-label {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-top: 0.5rem;
+        }
+
+        /* Advantages Section */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .advantage-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .advantage-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .advantage-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .advantage-features li {
+            margin: 0.5rem 0;
+            color: #475569;
+        }
+
+        /* Competitive Section */
+        .competitive {
+            background: #f8fafc;
+        }
+
+        .competitive-table {
+            width: 100%;
+            margin: 3rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .competitive-table th,
+        .competitive-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .competitive-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+        }
+
+        .cimtech-row {
+            background: #f0f9ff;
+            font-weight: 600;
+        }
+
+        /* Applications Section */
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .application-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .application-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        /* Progress Section */
+        .progress {
+            background: #f8fafc;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 4rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin: 2rem 0;
+            align-items: center;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            min-width: 100px;
+            color: #1e293b;
+        }
+
+        .timeline-content {
+            margin-left: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1;
+        }
+
+        /* Custom Model Training Section */
+        .custom-models {
+            text-align: center;
+        }
+
+        .models-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin: 4rem 0;
+        }
+
+        .model-demo {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .model-demo h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .team-member .role {
+            color: #0ea5e9;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .credentials {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .contact-email {
+            font-size: 1.5rem;
+            color: #0ea5e9;
+            text-decoration: none;
+            margin: 2rem 0;
+            display: inline-block;
+        }
+
+        .contact-address {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Figure Placeholder Styles */
+        .figure-placeholder {
+            background: #f1f5f9;
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            color: #64748b;
+            font-style: italic;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .figure-placeholder.large {
+            min-height: 400px;
+        }
+
+        .figure-placeholder.small {
+            min-height: 200px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .problem-content,
+            .solution-comparison,
+            .models-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .metrics-grid,
+            .solution-metrics {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .competitive-table {
+                font-size: 0.8rem;
+            }
+
+            .competitive-table th,
+            .competitive-table td {
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .metrics-grid,
+            .solution-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo">[LOGO]</div>
+            <h1>CIMTech.ai</h1>
+            <p class="hero-subtitle">High performance processors for AI, everywhere</p>
+            <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 2rem;">
+                The only scalable and robust analog in-memory computing breakthrough delivering unmatched AI performance, cost, and sustainability
+            </p>
+            
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div class="metric-number">20x</div>
+                    <div class="metric-label">Higher efficiency (TOPS/W)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">9x</div>
+                    <div class="metric-label">Higher compute density (TOPS/mm²)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">10x</div>
+                    <div class="metric-label">Lower TCO (inferences/$ or tokens/$)</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">100x</div>
+                    <div class="metric-label">Lower CO₂ emissions (vs. Cloud)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section problem">
+        <div class="container">
+            <h2 class="section-title">The Problem</h2>
+            <div class="problem-content">
+                <div class="problem-text">
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">AI is using as much power as cities</h3>
+                    <p style="font-size: 1.3rem; color: #475569;">We need a breakthrough in AI computing</p>
+                </div>
+                <div class="problem-stats">
+                    <div class="figure-placeholder">
+                        [Power Consumption Statistics Figure - AI 160% increase in data center power demand]
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Solution</h2>
+            <div class="solution-comparison">
+                <div class="traditional">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem;">Others</h3>
+                    <div class="figure-placeholder">
+                        [Traditional XPU → Memory Architecture Diagram]
+                    </div>
+                    <p style="margin-top: 1rem; font-weight: 600;">Bottlenecked by memory wall (&lt;10 TOPS/W)</p>
+                </div>
+                <div class="cimtech-solution">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem;">CIMTech</h3>
+                    <div class="figure-placeholder">
+                        [CIM Architecture Diagram with Network Icon]
+                    </div>
+                    <p style="margin-top: 1rem; font-weight: 600;">No bottleneck (200+ TOPS/W)<br>
+                    Non-volatile memory, more dense than SRAM</p>
+                </div>
+            </div>
+
+            <div class="solution-metrics">
+                <div class="solution-metric">
+                    <div class="solution-metric-number">80X</div>
+                    <div class="solution-metric-label">Higher efficiency than GPU</div>
+                </div>
+                <div class="solution-metric">
+                    <div class="solution-metric-number">4X</div>
+                    <div class="solution-metric-label">Larger models than CIM competitors</div>
+                </div>
+                <div class="solution-metric">
+                    <div class="solution-metric-number">&lt;1ms</div>
+                    <div class="solution-metric-label">End-to-end latency</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">CIMTech Advantages</h2>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <h3>High Performance</h3>
+                    <p style="color: #64748b; margin-bottom: 1rem;">Compute-in-Memory (CIM)</p>
+                    <ul class="advantage-features">
+                        <li>Fast, low-power, high bandwidth</li>
+                        <li>Leverage mature manufacturing</li>
+                        <li>Massively reduce cost of inference</li>
+                    </ul>
+                </div>
+                
+                <div class="advantage-card">
+                    <h3>Local Models</h3>
+                    <p style="color: #64748b; margin-bottom: 1rem;">Non-volatile memory (NVM)</p>
+                    <ul class="advantage-features">
+                        <li>Store entire model in NVM</li>
+                        <li>No network needed</li>
+                        <li>Radiation-tolerant</li>
+                    </ul>
+                </div>
+                
+                <div class="advantage-card">
+                    <h3>Highly Scalable</h3>
+                    <p style="color: #64748b; margin-bottom: 1rem;">Breakthrough system design</p>
+                    <ul class="advantage-features">
+                        <li>Out-scales CIM competitors</li>
+                        <li>Future integration with advanced packaging</li>
+                        <li>Chiplets and 3D integration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="figure-placeholder large">
+                [Hardware Images - M.2 Form Factor and 3D Integration Diagrams]
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Landscape -->
+    <section class="section competitive">
+        <div class="container">
+            <h2 class="section-title">Our Advantage</h2>
+            <p class="section-subtitle">Moore's law is dead, we need to rethink computing for AI</p>
+            
+            <table class="competitive-table">
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Companies</th>
+                        <th>Power Consumption</th>
+                        <th>Key Limitation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>GPU/TPU</strong></td>
+                        <td>NVIDIA, AMD, Google</td>
+                        <td>High power (~1000W)</td>
+                        <td>Scaling slowing down</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FPGA</strong></td>
+                        <td>Xilinx, Altera</td>
+                        <td>Medium power (~100W)</td>
+                        <td>Not optimized for AI</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Digital CIM</strong></td>
+                        <td>MemryX, D-Matrix</td>
+                        <td>Low power (~10W)</td>
+                        <td>Can't fit models on-chip</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analog CIM</strong></td>
+                        <td>EnChargeAI, Mythic, Sagence</td>
+                        <td>Low power (~5W)</td>
+                        <td>A/D Conversion Bottleneck</td>
+                    </tr>
+                    <tr class="cimtech-row">
+                        <td><strong>CIMTech</strong></td>
+                        <td>Analog, capacitive CIM</td>
+                        <td><strong>Ultra-low power (~100 mW)</strong></td>
+                        <td><strong>Clear scalability path</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="figure-placeholder">
+                [Hardware Efficiency Comparison Chart - Log Scale TOPS/W vs Different Technologies]
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Applications</h2>
+            <p class="section-subtitle">Enabling real-time processing of high-bandwidth signals in high impact applications</p>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="figure-placeholder small">
+                        [Defense/Satellite Image]
+                    </div>
+                    <h3>Defense ($10B+)</h3>
+                    <p>Real-time processing in low-network, multi-platform environments</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="figure-placeholder small">
+                        [Edge AI Sensors Image]
+                    </div>
+                    <h3>Edge AI ($100B+)</h3>
+                    <p>Smart sensors, 5G networks, wearables, infrastructure</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="figure-placeholder small">
+                        [Enterprise/Data Center Image]
+                    </div>
+                    <h3>Enterprise ($200B+)</h3>
+                    <p>Local LLMs, AI Agents, AI PCs, Servers, Data Centers</p>
+                </div>
+                
+                <div class="application-card">
+                    <div class="figure-placeholder small">
+                        [AGI Future Vision Image]
+                    </div>
+                    <h3>AGI ($1T+)</h3>
+                    <p>Our hardware's efficiency is necessary to achieve AGI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress & Roadmap -->
+    <section class="section progress">
+        <div class="container">
+            <h2 class="section-title">Progress & Roadmap</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h3>Proof of concept + Radiation Testing</h3>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-content">
+                        <h3>Tape-out with Global Foundries 28nm</h3>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Software & Algorithm Development (NeuroSim)</h3>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2024-2026</div>
+                    <div class="timeline-content">
+                        <h3>Building MVP</h3>
+                        <p>80M parameters, 200 TOPS/W, &lt;1 ms latency, M.2 form factor</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: 12px; margin: 3rem 0;">
+                <h3 style="color: #1e293b; margin-bottom: 1rem;">Funded Research</h3>
+                <p><strong>Georgia Tech:</strong> IARPA, SRC, IMEC ($800K+)</p>
+                <p><strong>Georgia Research Alliance:</strong> $50K</p>
+            </div>
+
+            <div class="figure-placeholder">
+                [Progress Timeline with Technical Images - Chip Photos and NeuroSim Interface]
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Model Training Section -->
+    <section class="section custom-models">
+        <div class="container">
+            <h2 class="section-title">Custom Model Training</h2>
+            <p class="section-subtitle">We train custom models for your application - you just need to build the dataset</p>
+            
+            <div class="models-showcase">
+                <div class="model-demo">
+                    <h3>Radio Frequency Classification</h3>
+                    <div class="figure-placeholder">
+                        [RF Classification GIF - Real-time signal processing visualization]
+                    </div>
+                    <p style="margin-top: 1rem; color: #64748b;">
+                        Real-time processing of high-bandwidth RF signals with sub-millisecond latency
+                    </p>
+                </div>
+                
+                <div class="model-demo">
+                    <h3>ML Model Training Performance</h3>
+                    <div class="figure-placeholder">
+                        [ML Training Chart - Training efficiency comparison]
+                    </div>
+                    <p style="margin-top: 1rem; color: #64748b;">
+                        Optimized training workflows for edge deployment with our analog CIM architecture
+                    </p>
+                </div>
+            </div>
+            
+            <div style="background: #f0f9ff; padding: 3rem; border-radius: 12px; margin: 3rem 0;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: #1e293b;">
+                    Building an AI Agent for Model Optimization
+                </h3>
+                <p style="font-size: 1.2rem; color: #475569;">
+                    Our compiler and Python interface make it easy to deploy your models, while our AI agent 
+                    automatically optimizes architectures for your specific application requirements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="figure-placeholder small">
+                        [James Read Photo]
+                    </div>
+                    <h3>James Read</h3>
+                    <div class="role">Chief Executive Officer</div>
+                    <div class="credentials">GT PhD, UMich BS | Ex-Rain AI</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="figure-placeholder small">
+                        [Shimeng Yu Photo]
+                    </div>
+                    <h3>Shimeng Yu</h3>
+                    <div class="role">Chief Science Officer</div>
+                    <div class="credentials">GT Professor, Stanford PhD | IEEE Fellow</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="figure-placeholder small">
+                        [Jonathan Goldman Photo]
+                    </div>
+                    <h3>Jonathan Goldman</h3>
+                    <div class="role">Entrepreneurial Advisor</div>
+                    <div class="credentials">Lab-to-market specialist | Quadrant-i Director</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="figure-placeholder small">
+                        [Roham Wahabzada Photo]
+                    </div>
+                    <h3>Roham Wahabzada</h3>
+                    <div class="role">Analog Design Lead</div>
+                    <div class="credentials">GT PhD Student | Ex-Apple</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="figure-placeholder small">
+                        [Saad Mufti Photo]
+                    </div>
+                    <h3>Saad Mufti</h3>
+                    <div class="role">Digital Design Lead</div>
+                    <div class="credentials">GT MS | Apple, Ex-Tektronix</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="figure-placeholder small">
+                        [Ming-Yen Lee Photo]
+                    </div>
+                    <h3>Ming-Yen Lee</h3>
+                    <div class="role">Machine Learning</div>
+                    <div class="credentials">GT PhD Student, Tsinghua BSE</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="figure-placeholder small">
+                        [Paul Juda Photo]
+                    </div>
+                    <h3>Paul Juda</h3>
+                    <div class="role">Fundraising & Sales</div>
+                    <div class="credentials">UMich MBA | Olympian</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="figure-placeholder small">
+                        [Zach Ellis Photo]
+                    </div>
+                    <h3>Zach Ellis</h3>
+                    <div class="role">Design Automation</div>
+                    <div class="credentials">GT PhD, Purdue BS | Silicon Jackets Founder</div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="figure-placeholder small">
+                        [Nassos Moschos Photo]
+                    </div>
+                    <h3>Nassos Moschos</h3>
+                    <div class="role">Tapeout</div>
+                    <div class="credentials">GT PhD Student | Ex-Tenstorrent</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-info">734-548-3125</div>
+            <a href="mailto:james.read@cimtech.ai" class="contact-email">james.read@cimtech.ai</a>
+            <div class="contact-info">www.cimtech.ai</div>
