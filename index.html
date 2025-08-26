@@ -37,16 +37,24 @@
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 3rem;
+            width: clamp(4rem, 10vw, 8rem);
+            height: clamp(4rem, 10vw, 8rem);
+            vertical-align: middle;
+            margin-right: 1rem;
+        }
+
+        .hero-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
         }
 
         .hero h1 {
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 800;
-            margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
+            margin: 0;
         }
 
         .hero-subtitle {
@@ -60,7 +68,7 @@
 
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 3rem;
             margin-top: 4rem;
             width: 100%;
@@ -134,9 +142,9 @@
 
         .problem-stats {
             background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.15);
         }
 
         /* Solution Section */
@@ -456,26 +464,32 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <img src="images/Big Logo.svg" alt="CIMTech.ai Logo" class="logo">
-            <h1>CIMTech.ai</h1>
+            <div class="hero-title">
+                <img src="images/Big Logo.svg" alt="CIMTech.ai Logo" class="logo">
+                <h1>CIMTech.ai</h1>
+            </div>
             <p class="hero-subtitle">High performance processors for AI, everywhere</p>
             <p style="font-size: 1.2rem; color: #64748b; margin-bottom: 2rem;">
-                The only scalable and robust analog in-memory computing breakthrough delivering unmatched AI performance, cost, and sustainability
+                The first truly scalable and reliable analog in-memory computing
             </p>
             
             <div class="metrics-grid">
                 <div class="metric">
-                    <div class="metric-number">80x</div>
-                    <div class="metric-label">Higher efficiency than GPU (TOPS/W)</div>
+                    <div class="metric-number">80X</div>
+                    <div class="metric-label">Higher efficiency than GPU (TOPS*/W)</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number">4x</div>
-                    <div class="metric-label">Higher compute density than CIM competitors (TOPS/mm²)</div>
+                    <div class="metric-number">4X</div>
+                    <div class="metric-label">Higher compute density than CIM competitors (TOPS*/mm²)</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number"><1ms></div>
-                    <div class="metric-label">Latency</div>
+                    <div class="metric-number">&lt;1ms</div>
+                    <div class="metric-label">End-to-end Latency</div>
                 </div>
+            </div>
+            
+            <div style="margin-top: 2rem; text-align: center; color: #64748b; font-size: 0.9rem;">
+                *Scaled to 8b input 8b weight operations
             </div>
         </div>
     </section>
@@ -487,12 +501,10 @@
             <div class="problem-content">
                 <div class="problem-text">
                     <h3 style="font-size: 2rem; margin-bottom: 1rem;">AI is using as much power as cities</h3>
-                    <p style="font-size: 1.3rem; color: #475569;">We need a breakthrough in AI computing</p>
+                    <p style="font-size: 1.3rem; color: #475569;">We need sustainable computing for AI</p>
                 </div>
                 <div class="problem-stats">
-                    <div class="figure-placeholder">
-                        [Power Consumption Statistics Figure - AI 160% increase in data center power demand]
-                    </div>
+                    <img src="images/AI power consumption.png" alt="AI Power Consumption Statistics - 160% increase in data center power demand" style="width: 120%; height: auto; object-fit: contain; margin-left: -10%;">
                 </div>
             </div>
         </div>
@@ -504,34 +516,15 @@
             <h2 class="section-title">Our Solution</h2>
             <div class="solution-comparison">
                 <div class="traditional">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem;">Others</h3>
-                    <div class="figure-placeholder">
-                        [Traditional XPU → Memory Architecture Diagram]
-                    </div>
-                    <p style="margin-top: 1rem; font-weight: 600;">Bottlenecked by memory wall (&lt;10 TOPS/W)</p>
+                    <h3 style="font-size: 2.5rem; margin-bottom: 2rem;">Others</h3>
+                    <img src="images/Other architecture.svg" alt="Traditional XPU to Memory Architecture" style="width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+                    <p style="margin-top: 1rem; font-weight: 600; font-size: 1.4rem;">Bottlenecked by memory wall (&lt;10 TOPS/W)</p>
                 </div>
                 <div class="cimtech-solution">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem;">CIMTech</h3>
-                    <div class="figure-placeholder">
-                        [CIM Architecture Diagram with Network Icon]
-                    </div>
-                    <p style="margin-top: 1rem; font-weight: 600;">No bottleneck (200+ TOPS/W)<br>
-                    Non-volatile memory, more dense than SRAM</p>
-                </div>
-            </div>
-
-            <div class="solution-metrics">
-                <div class="solution-metric">
-                    <div class="solution-metric-number">80X</div>
-                    <div class="solution-metric-label">Higher efficiency than GPU</div>
-                </div>
-                <div class="solution-metric">
-                    <div class="solution-metric-number">4X</div>
-                    <div class="solution-metric-label">Larger models than CIM competitors</div>
-                </div>
-                <div class="solution-metric">
-                    <div class="solution-metric-number">&lt;1ms</div>
-                    <div class="solution-metric-label">End-to-end latency</div>
+                    <h3 style="font-size: 2.5rem; margin-bottom: 2rem;">CIMTech</h3>
+                    <img src="images/CIM architecture.svg" alt="CIM Architecture Diagram" style="width: 80%; height: auto; max-height: 250px; object-fit: contain;">
+                    <p style="margin-top: 1rem; font-weight: 600; font-size: 1.4rem;">No bottleneck (200+ TOPS/W)<br>
+                    Can fit entire model in CIM</p>
                 </div>
             </div>
         </div>
@@ -574,8 +567,15 @@
                 </div>
             </div>
 
-            <div class="figure-placeholder large">
-                [Hardware Images - M.2 Form Factor and 3D Integration Diagrams]
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin: 3rem 0; text-align: center;">
+                <div>
+                    <img src="images/m2.svg" alt="M.2 Form Factor" style="height: 200px; width: auto; object-fit: contain;">
+                    <p style="margin-top: 1rem; font-size: 1.2rem; color: #475569;">First product will fit in the palm of your hand and use <1 W</p>
+                </div>
+                <div>
+                    <img src="images/chiplet.svg" alt="3D Integration Chiplet Diagram" style="height: 200px; width: auto; object-fit: contain;">
+                    <p style="margin-top: 1rem; font-size: 1.2rem; color: #475569;">Future products will leverage advanced packaging to scale beyond today's limits</p>
+                </div>
             </div>
         </div>
     </section>
@@ -584,7 +584,7 @@
     <section class="section competitive">
         <div class="container">
             <h2 class="section-title">Our Advantage</h2>
-            <p class="section-subtitle">Moore's law is dead, we need to rethink computing for AI</p>
+            <p class="section-subtitle" style="font-size: clamp(1rem, 2.5vw, 1.4rem);">Moore's law is dead, we're unlocking new scaling laws</p>
             
             <table class="competitive-table">
                 <thead>
@@ -599,38 +599,41 @@
                     <tr>
                         <td><strong>GPU/TPU</strong></td>
                         <td>NVIDIA, AMD, Google</td>
-                        <td>High power (~1000W)</td>
+                        <td>High power (~1,000 W)</td>
                         <td>Scaling slowing down</td>
                     </tr>
                     <tr>
                         <td><strong>FPGA</strong></td>
                         <td>Xilinx, Altera</td>
-                        <td>Medium power (~100W)</td>
+                        <td>Medium power (~100 W)</td>
                         <td>Not optimized for AI</td>
                     </tr>
                     <tr>
                         <td><strong>Digital CIM</strong></td>
                         <td>MemryX, D-Matrix</td>
-                        <td>Low power (~10W)</td>
+                        <td>Low power (~10 W)</td>
                         <td>Can't fit models on-chip</td>
                     </tr>
                     <tr>
                         <td><strong>Analog CIM</strong></td>
                         <td>EnChargeAI, Mythic, Sagence</td>
-                        <td>Low power (~5W)</td>
-                        <td>A/D Conversion Bottleneck</td>
-                    </tr>
-                    <tr class="cimtech-row">
-                        <td><strong>CIMTech</strong></td>
-                        <td>Analog, capacitive CIM</td>
-                        <td><strong>Ultra-low power (~100 mW)</strong></td>
-                        <td><strong>Clear scalability path</strong></td>
+                        <td>Low power (~5 W)</td>
+                        <td>A/D conversion bottleneck</td>
                     </tr>
                 </tbody>
             </table>
 
-            <div class="figure-placeholder">
-                [Hardware Efficiency Comparison Chart - Log Scale TOPS/W vs Different Technologies]
+            <div class="cimtech-row" style="background: #f0f9ff; padding: 2rem; border-radius: 12px; margin: 3rem 0; text-align: center;">
+                <h3 style="font-size: 2rem; margin-bottom: 1rem; color: #1e293b;">CIMTech</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; font-size: 1.3rem;">
+                    <div><strong>Technology:</strong><br>Analog, capacitive CIM</div>
+                    <div><strong>Power:</strong><br>Ultra-low power (~100 mW)</div>
+                    <div><strong>Advantages:</strong><br>Eliminate 95% of A/D converters Fine-tune for long-term reliability </div>
+                </div>
+            </div>
+
+            <div style="margin: 3rem 0; text-align: center;">
+                <img src="images/TOPS per Watt v2.png" alt="Hardware Efficiency Comparison Chart - Log Scale TOPS/W vs Different Technologies" style="width: 100%; height: auto; max-width: 800px; object-fit: contain;">
             </div>
         </div>
     </section>
@@ -643,33 +646,25 @@
             
             <div class="applications-grid">
                 <div class="application-card">
-                    <div class="figure-placeholder small">
-                        [Defense/Satellite Image]
-                    </div>
+                    <img src="images/satellite.svg" alt="Defense/Satellite" style="width: 100%; height: 150px; object-fit: contain; margin-bottom: 1rem;">
                     <h3>Defense ($10B+)</h3>
                     <p>Real-time processing in low-network, multi-platform environments</p>
                 </div>
                 
                 <div class="application-card">
-                    <div class="figure-placeholder small">
-                        [Edge AI Sensors Image]
-                    </div>
+                    <img src="images/oscilloscope.svg" alt="Edge AI Sensors" style="width: 100%; height: 150px; object-fit: contain; margin-bottom: 1rem;">
                     <h3>Edge AI ($100B+)</h3>
                     <p>Smart sensors, 5G networks, wearables, infrastructure</p>
                 </div>
                 
                 <div class="application-card">
-                    <div class="figure-placeholder small">
-                        [Enterprise/Data Center Image]
-                    </div>
+                    <img src="images/datacenter.jpg" alt="Enterprise/Data Center" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Enterprise ($200B+)</h3>
                     <p>Local LLMs, AI Agents, AI PCs, Servers, Data Centers</p>
                 </div>
                 
                 <div class="application-card">
-                    <div class="figure-placeholder small">
-                        [AGI Future Vision Image]
-                    </div>
+                    <img src="images/AGI.png" alt="AGI Future Vision" style="width: 100%; height: 150px; object-fit: cover; margin-bottom: 1rem;">
                     <h3>AGI ($1T+)</h3>
                     <p>Our hardware's efficiency is necessary to achieve AGI</p>
                 </div>
