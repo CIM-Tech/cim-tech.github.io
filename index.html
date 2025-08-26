@@ -61,6 +61,8 @@
             color: #475569;
             margin-bottom: 4rem;
             max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .metrics-grid {
@@ -470,20 +472,16 @@
             
             <div class="metrics-grid">
                 <div class="metric">
-                    <div class="metric-number">20x</div>
-                    <div class="metric-label">Higher efficiency (TOPS/W)</div>
+                    <div class="metric-number">80x</div>
+                    <div class="metric-label">Higher efficiency than GPU (TOPS/W)</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number">9x</div>
-                    <div class="metric-label">Higher compute density (TOPS/mm²)</div>
+                    <div class="metric-number">4x</div>
+                    <div class="metric-label">Higher compute density than CIM competitors (TOPS/mm²)</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-number">10x</div>
-                    <div class="metric-label">Lower TCO (inferences/$ or tokens/$)</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-number">100x</div>
-                    <div class="metric-label">Lower CO₂ emissions (vs. Cloud)</div>
+                    <div class="metric-number"><1ms></div>
+                    <div class="metric-label">Latency</div>
                 </div>
             </div>
         </div>
@@ -871,3 +869,32 @@
             <div class="contact-info">734-548-3125</div>
             <a href="mailto:james.read@cimtech.ai" class="contact-email">james.read@cimtech.ai</a>
             <div class="contact-info">www.cimtech.ai</div>
+            <div class="contact-address">
+                Georgia Tech Technology Square<br>
+                75 5th Street NW, Atlanta, GA 30308
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for section animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
