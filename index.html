@@ -303,11 +303,12 @@
 
         .timeline-content {
             margin-left: 2rem;
-            padding: 1.5rem;
+            padding: 1rem 1rem 1rem 1rem;
             background: white;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             flex: 1;
+            max-width: 500px;
         }
 
         /* Custom Model Training Section */
@@ -642,7 +643,7 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">Applications</h2>
-            <p class="section-subtitle">Enabling real-time processing of high-bandwidth signals in high impact applications</p>
+            <p class="section-subtitle">Providing high-impact solutions from edge to datacenter</p>
             
             <div class="applications-grid">
                 <div class="application-card">
@@ -677,63 +678,28 @@
         <div class="container">
             <h2 class="section-title">Progress & Roadmap</h2>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">2021</div>
-                    <div class="timeline-content">
-                        <h3>Proof of concept + Radiation Testing</h3>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2022</div>
-                    <div class="timeline-content">
-                        <h3>Tape-out with Global Foundries 28nm</h3>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2023</div>
-                    <div class="timeline-content">
-                        <h3>Software & Algorithm Development (NeuroSim)</h3>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-year">2024-2026</div>
-                    <div class="timeline-content">
-                        <h3>Building MVP</h3>
-                        <p>80M parameters, 200 TOPS/W, &lt;1 ms latency, M.2 form factor</p>
-                    </div>
-                </div>
+            <div style="text-align: center; margin: 3rem 0;">
+                <img src="images/Progress.svg" alt="CIMTech Progress & Roadmap Timeline" style="width: 100%; height: auto; max-width: 1000px; object-fit: contain;">
             </div>
 
-            <div style="background: white; padding: 2rem; border-radius: 12px; margin: 3rem 0;">
-                <h3 style="color: #1e293b; margin-bottom: 1rem;">Funded Research</h3>
-                <p><strong>Georgia Tech:</strong> IARPA, SRC, IMEC ($800K+)</p>
-                <p><strong>Georgia Research Alliance:</strong> $50K</p>
-            </div>
 
-            <div class="figure-placeholder">
-                [Progress Timeline with Technical Images - Chip Photos and NeuroSim Interface]
-            </div>
         </div>
     </section>
 
     <!-- Custom Model Training Section -->
-    <section class="section custom-models">
+    <!-- <section class="section custom-models">
         <div class="container">
             <h2 class="section-title">Custom Model Training</h2>
             <p class="section-subtitle">We train custom models for your application - you just need to build the dataset</p>
             
             <div class="models-showcase">
                 <div class="model-demo">
-                    <h3>Radio Frequency Classification</h3>
+                    <h3>Signal Classification</h3>
                     <div class="figure-placeholder">
                         [RF Classification GIF - Real-time signal processing visualization]
                     </div>
                     <p style="margin-top: 1rem; color: #64748b;">
-                        Real-time processing of high-bandwidth RF signals with sub-millisecond latency
+                        Real-time processing of high-bandwidth signals with sub-millisecond latency
                     </p>
                 </div>
                 
@@ -758,7 +724,7 @@
                 </p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Team Section -->
     <section class="section">
@@ -767,81 +733,63 @@
             
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="figure-placeholder small">
-                        [James Read Photo]
-                    </div>
+                    <img src="images/James Headshot.png" alt="James Read" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>James Read</h3>
                     <div class="role">Chief Executive Officer</div>
                     <div class="credentials">GT PhD, UMich BS | Ex-Rain AI</div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="figure-placeholder small">
-                        [Shimeng Yu Photo]
-                    </div>
+                    <img src="images/Shimeng Yu.png" alt="Shimeng Yu" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Shimeng Yu</h3>
                     <div class="role">Chief Science Officer</div>
                     <div class="credentials">GT Professor, Stanford PhD | IEEE Fellow</div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="figure-placeholder small">
-                        [Jonathan Goldman Photo]
-                    </div>
+                    <img src="images/Jon Goldman.png" alt="Jonathan Goldman" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Jonathan Goldman</h3>
                     <div class="role">Entrepreneurial Advisor</div>
                     <div class="credentials">Lab-to-market specialist | Quadrant-i Director</div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="figure-placeholder small">
-                        [Roham Wahabzada Photo]
-                    </div>
+                    <img src="images/Roham.png" alt="Roham Wahabzada" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Roham Wahabzada</h3>
                     <div class="role">Analog Design Lead</div>
                     <div class="credentials">GT PhD Student | Ex-Apple</div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="figure-placeholder small">
-                        [Saad Mufti Photo]
-                    </div>
+                    <img src="images/Saad.png" alt="Saad Mufti" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Saad Mufti</h3>
                     <div class="role">Digital Design Lead</div>
                     <div class="credentials">GT MS | Apple, Ex-Tektronix</div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="figure-placeholder small">
-                        [Ming-Yen Lee Photo]
-                    </div>
+                    <img src="images/Ming-Yen.png" alt="Ming-Yen Lee" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Ming-Yen Lee</h3>
                     <div class="role">Machine Learning</div>
                     <div class="credentials">GT PhD Student, Tsinghua BSE</div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="figure-placeholder small">
-                        [Paul Juda Photo]
-                    </div>
+                    <img src="images/Paul Juda.png" alt="Paul Juda" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Paul Juda</h3>
                     <div class="role">Fundraising & Sales</div>
                     <div class="credentials">UMich MBA | Olympian</div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="figure-placeholder small">
-                        [Zach Ellis Photo]
-                    </div>
+                    <img src="images/Zach.png" alt="Zach Ellis" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Zach Ellis</h3>
                     <div class="role">Design Automation</div>
                     <div class="credentials">GT PhD, Purdue BS | Silicon Jackets Founder</div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="figure-placeholder small">
-                        [Nassos Moschos Photo]
-                    </div>
+                    <img src="images/Nassos.png" alt="Nassos Moschos" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem;">
                     <h3>Nassos Moschos</h3>
                     <div class="role">Tapeout</div>
                     <div class="credentials">GT PhD Student | Ex-Tenstorrent</div>
