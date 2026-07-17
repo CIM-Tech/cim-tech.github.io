@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIMTech.ai &mdash; Coming Soon</title>
-    <meta name="description" content="High performance processors for AI, everywhere. Coming soon.">
+    <title>CIMTech.ai &mdash; What if AI had infinite memory?</title>
+    <meta name="description" content="High performance processors for AI, everywhere. What if AI had infinite memory?">
     <link rel="icon" type="image/svg+xml" href="/images/Big Logo.svg">
     <style>
         * {
@@ -36,16 +36,41 @@
             z-index: -2;
         }
 
-        .grid {
+        .glow {
             position: fixed;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-            background-size: 48px 48px;
-            mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.55;
             z-index: -1;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            width: 45vw;
+            height: 45vw;
+            left: 8%;
+            top: 12%;
+            background: radial-gradient(circle, rgba(56, 132, 255, 0.28), transparent 70%);
+            animation: drift-1 24s ease-in-out infinite;
+        }
+
+        .glow-2 {
+            width: 40vw;
+            height: 40vw;
+            right: 5%;
+            bottom: 10%;
+            background: radial-gradient(circle, rgba(120, 80, 220, 0.24), transparent 70%);
+            animation: drift-2 30s ease-in-out infinite;
+        }
+
+        @keyframes drift-1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(6vw, 4vh); }
+        }
+
+        @keyframes drift-2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-5vw, -5vh); }
         }
 
         main {
@@ -82,35 +107,11 @@
             margin-bottom: 2.5rem;
         }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.6rem 1.4rem;
-            background: rgba(56, 132, 255, 0.1);
-            border: 1px solid rgba(56, 132, 255, 0.3);
-            border-radius: 999px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
+        .tagline {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            letter-spacing: 0.02em;
             color: #c7d4ee;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .pulse {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #4ade80;
-            box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
-            70% { box-shadow: 0 0 0 12px rgba(74, 222, 128, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
         }
 
         footer {
@@ -137,15 +138,13 @@
 </head>
 <body>
     <div class="bg"></div>
-    <div class="grid"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
 
     <main>
         <img class="logo" src="/images/Big Logo.svg" alt="CIMTech logo">
         <h1>CIMTech</h1>
-        <div class="badge">
-            <span class="pulse"></span>
-            <span>Coming Soon</span>
-        </div>
+        <p class="tagline">What if AI had infinite memory?</p>
     </main>
 
     <footer>
